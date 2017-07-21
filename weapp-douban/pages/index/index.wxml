@@ -1,0 +1,71 @@
+<!--index.wxml 榜单-->
+<scroll-view class="container" scroll-y="true">
+  <loading hidden="{{ !loading }}">加载中...</loading>
+  <!-- search -->
+  <view class="search">
+    <navigator url="../search/search" hover-class="none">
+      <button type="default" size="default" class="search-btn">
+        <icon type="search" size="12"/>
+        <text selectable="false">搜索</text>
+      </button>
+    </navigator>
+  </view>
+
+  <view class="slide">
+    <swiper indicator-dots="true" autoplay="true" duration="1000">
+      <swiper-item wx:for="{{ boards[0].movies }}" wx:key="{{ item.id }}">
+        <image src="{{ item.images.large }}" mode="aspectFill"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="board" scroll-y="true">
+    <block wx:for="{{ boards }}" wx:key="{{ item.key }}">
+      <!-- normal board -->
+      <view class="board-item" wx:if="{{ item.key !== 'us_box' }}">
+        <navigator url="../lists/lists?type={{ item.key }}&title={{ item.title }}" hover-class="none"> 
+          <view class="title">
+            <text>{{ item.title }}</text>
+            <view class="right">
+              <text>更多</text>
+              <image src="../../image/arrowright.png" mode="scaleToFill"></image>
+            </view>
+          </view>
+        </navigator>
+        <scroll-view class="content" scroll-x="true" wx:if="{{ item.key !== 'us_box'}}">
+          <view class="inner">
+            <navigator url="../item/item?id={{ item.id }}" wx:for="{{ item.movies }}" wx:key="{{ item.id }}">
+              <view class="movie-item">
+                <image src="{{ item.images.large }}" mode="scaleToFill"></image>
+                <text>{{ item.title }}</text>
+              </view>
+            </navigator>
+          </view>
+        </scroll-view>
+      </view>
+      <!-- / End normal board -->
+      <!-- us box board -->
+      <view class="board-item" wx:else>
+        <navigator url="../lists/lists?type={{ item.key }}&title={{ item.title }}" hover-class="none"> 
+          <view class="title">
+            <text>{{ item.title }}</text>
+            <view class="right">
+              <text>更多</text>
+              <image src="../../image/arrowright.png" mode="scaleToFill"></image>
+            </view>
+          </view>
+        </navigator>
+        <scroll-view class="content" scroll-x="true">
+          <view class="inner">
+            <navigator url="../item/item?id={{ item.subject.id }}" wx:for="{{ item.movies }}" wx:key="{{ item.id }}">
+              <view class="movie-item">
+                <image src="{{ item.subject.images.large }}" mode="scaleToFill"></image>
+                <text>{{ item.subject.title }}</text>
+              </view>
+            </navigator>
+          </view>
+        </scroll-view>
+      </view>
+      <!-- / End us box board -->
+    </block>
+  </view>
+</scroll-view>

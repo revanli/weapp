@@ -1,0 +1,16 @@
+<!--search.wxml-->
+<import src="../common/movie-list" />
+<scroll-view class="container">
+  <view class="search">
+    <view class="input-group">
+      <icon type="search" size="12" color="#b2b2b2"></icon>
+      <input type="text" placeholder="搜索" focus bindchange="handleSearch" />
+    </view>
+    <navigator open-type="navigateBack">
+      <view class="cancel-text">取消</view>
+    </navigator>
+  </view>
+
+  <!-- movies -->
+  <template is="movie-list" data="{{ movies, loading, hasMore }}"></template>
+</scroll-view>

@@ -1,0 +1,92 @@
+/**index.wxss**/
+/* -- search -- */
+.search {
+  padding: 10rpx 20rpx;
+  background: #43BB57;
+}
+.search .search-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #43BB57;
+  border-radius: 6px;
+  color: #b2b2b2;
+  height: 50rpx;
+  background: #fff;
+}
+.search .search-btn icon,
+.search .search-btn text {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 10rpx;
+  color: #b2b2b2;
+  font-size: 12px;
+  line-height: 12px;
+}
+.slide swiper {
+  height: 380rpx;
+}
+.slide swiper image {
+  height: 380rpx;
+  width: 750rpx;
+}
+.board {
+  box-sizing: border-box;
+  background-color: #f6f6f6;
+}
+.board-item {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  font-size: 20rpx;
+  margin: 40rpx 0;
+  padding: 20rpx;
+  background-color: #fff;
+}
+.board-item .title {
+  display: flex;
+  align-content: center;
+  margin-bottom: 10rpx;
+  width: 100%;
+  padding-left: 10rpx;
+  border-left: 8rpx solid #43BB57;
+}
+.board-item .title > text {
+  flex: 1;
+  font-size: 16px;
+}
+.board-item .title .right text {
+  color: #43BB57;
+  font-size: 14px;
+}
+.board-item .title image {
+  height: 20rpx;
+  width: 20rpx;
+}
+.board-item .content {
+  height: 300rpx;
+}
+.board-item .content .inner {
+  display: flex;
+  flex-direction: row;
+  height: 300rpx;
+  width: 900rpx;
+}
+.board-item .content .inner .movie-item {
+  display: flex;
+  flex-direction: column;
+  width: 180rpx;
+  margin: 10rpx;
+  margin-right: 10px;
+}
+.board-item .movie-item image {
+  width: 192rpx;
+  height: 253rpx;
+}
+.board-item .movie-item text {
+  text-align: left;
+  font-size: 12px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
