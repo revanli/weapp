@@ -22,6 +22,7 @@ Page({
     if (!this.data.hasMore) return
 
     this.setData({ subtitle: '加载中...', loading: true })
+    console.log(this.data.size)
     return app.douban.find(this.data.type, this.data.page++, this.data.size)
       .then(d => {
         if (d.subjects.length) {
@@ -44,7 +45,10 @@ Page({
 
     this.data.type = params.type || this.data.type
 
-    this.handleLoadMore()
+    // 北美票房排行榜只需加载一次
+    this.handleLoadMore().then(() => {
+      this.setData({ hasMore: false })
+    })
   },
 
   /**
@@ -80,6 +84,7 @@ Page({
    * 刷新后停止
    */
   onPullDownRefresh: function () {
+    console.log('in')
     this.setData({ movies: [], page: 1, hasMore: true })
     this.handleLoadMore()
       .then(() => { app.wechat.original.stopPullDownRefresh() })

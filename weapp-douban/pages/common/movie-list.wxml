@@ -26,7 +26,7 @@
       <view class="meta">
         <text class="title">{{ item.subject.title }}</text>
         <text class="sub-title">{{ item.subject.original_title }} ({{ item.subject.year }})</text>
-        <view class="artists">导演：<block wx:for="{{ item.directors }}" wx:key="{{ item.id }}"> {{ item.name }} </block></view>
+        <view class="artists">导演：<block wx:for="{{ item.subject.directors }}" wx:key="{{ item.id }}">{{ item.name }}</block></view>
       </view>
       <view class="rating">
         <text>{{ item.subject.rating.average }}</text>
