@@ -47,7 +47,9 @@ Page({
 
     // 北美票房排行榜只需加载一次
     this.handleLoadMore().then(() => {
-      this.setData({ hasMore: false })
+      if (this.data.type == 'us_box') {
+        this.setData({ hasMore: false })
+      }
     })
   },
 
